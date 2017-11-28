@@ -8,7 +8,7 @@ describe("Gilded Rose", function() {
   beforeEach(function() {
 
     oneItem = {
-      _name: "Sulfuras, Hand of Ragnaros",
+      _name: "test",
       _quality: 5,
       _sellIn: 3
 
