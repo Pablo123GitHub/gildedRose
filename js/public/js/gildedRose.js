@@ -57,7 +57,7 @@
       return this._items[i]._quality < 50;
     },
 
-    raiseQuality: function(i) {    
+    raiseQuality: function(i) {
       return this._items[i]._quality = this._items[i]._quality + 1
 
     },
@@ -91,41 +91,3 @@
   };
   exports.Shop = Shop;
 })(this);
-
-// Understands how to display a count.
-
-// "use strict";
-//
-// (function(exports) {
-//   function CountView(countElement) {
-//     this._countElement = countElement;
-//   };
-//
-//   CountView.prototype = {
-//     display: function(count) {
-//       this._countElement.innerHTML = count;
-//     }
-//   };
-//
-//   exports.CountView = CountView;
-// })(this);
-//
-
-
-// if (this.checkItemSellIn(i) < 0) {
-//   if (this.isNameNotBrie(i)) {
-//     if (this.isNameNotBackStg(i)) {
-//       this.isQualPositiveLowerIfSulfura(i);
-//     } else {
-//       this._items[i]._quality = 0;
-//     }
-//   } else {
-//     this.raiseQualityIfLssthn50(i);
-//   }
-// }
-//   return this._items;
-// }
-
-
-// }
-//
