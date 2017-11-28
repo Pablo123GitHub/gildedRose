@@ -20,8 +20,8 @@
           if (this.isQualityLessTh50(i)) {
             this.raiseQuality(i);
             if (!this.isNameNotBackStg(i)) {
-              this.raiseQualityIfDaysUp(i, 6)
-              this.raiseQualityIfDaysUp(i, 11)
+              this.raiseQualityIfSellInClose(i, 6)
+              this.raiseQualityIfSellInClose(i, 11)
             }
           }
         }
@@ -57,13 +57,51 @@
       return this._items[i]._quality < 50;
     },
 
+    raiseQualityIfSellInClose: function(i) {
+      let sellIn = this.checkItemSellIn(i)
+      if (sellIn < 6 ) {
+        return this.raiseQualityIfLssthn50ByThree(i);
+      }
+      if (sellIn < 11 && sellIn > 6) {
+        return this.raiseQualityIfLssthn50ByTwo(i);
+      }
+      return this.raiseQualityIfLssthn50(i);
+    },
+
+    raiseQualityIfLssthn50: function(i) {
+      if (this.isQualityLessTh50(i)) {
+      return this.raiseQuality(i);
+      }
+    },
+
+    raiseQualityIfLssthn50ByTwo: function(i) {
+      if (this.isQualityLessTh50(i)) {
+      return this.raiseQualityByTwo(i);
+      }
+    },
+
+    raiseQualityIfLssthn50ByThree: function(i) {
+      if (this.isQualityLessTh50(i)) {
+      return this.raiseQualityByThree(i);
+      }
+    },
+
     raiseQuality: function(i) {
       return this._items[i]._quality = this._items[i]._quality + 1
 
     },
 
+    raiseQualityByTwo: function(i) {
+      return this._items[i]._quality = this._items[i]._quality + 2
+
+    },
+
+    raiseQualityByThree: function(i) {
+      return this._items[i]._quality = this._items[i]._quality + 3
+
+    },
+
     checkItemSellIn: function(i) {
-      console.log("checkItemSellIng", this._items[i]._sellIn );
       return this._items[i]._sellIn
     },
 
@@ -73,19 +111,6 @@
         return  this.lowerQuality(i);
         }
       }
-    },
-
-    raiseQualityIfLssthn50: function(i) {
-      if (this.isQualityLessTh50(i)) {
-      return this.raiseQuality(i);
-      }
-    },
-
-    raiseQualityIfDaysUp: function(i, days) {
-      if (this.checkItemSellIn(i) < days) {
-        return this.raiseQualityIfLssthn50(i);
-      }
-      return this.raiseQualityIfLssthn50(i);
     }
 
   };
