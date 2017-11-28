@@ -25,16 +25,18 @@
             }
           }
         }
-
         if (this.isNotSulfuras(i)) {
           this.checkItemSellIn(i) = this.checkItemSellIn(i) - 1;
         }
-
       };
     },
 
     lowerQuality: function(i) {
-      return this._items[i]._quality = this._items[i]._quality - 1;
+      if (this._items[i]._name != "Conjured") {
+          return this._items[i]._quality = this._items[i]._quality - 1;
+      } else {
+          return this._items[i]._quality = this._items[i]._quality - 2;
+      }
     },
 
     isNotSulfuras: function(i) {
@@ -59,7 +61,7 @@
 
     raiseQualityIfSellInClose: function(i) {
       let sellIn = this.checkItemSellIn(i)
-      if (sellIn < 6 ) {
+      if (sellIn < 6) {
         return this.raiseQualityIfLssthn50ByThree(i);
       }
       if (sellIn < 11 && sellIn > 6) {
@@ -70,19 +72,19 @@
 
     raiseQualityIfLssthn50: function(i) {
       if (this.isQualityLessTh50(i)) {
-      return this.raiseQuality(i);
+        return this.raiseQuality(i);
       }
     },
 
     raiseQualityIfLssthn50ByTwo: function(i) {
       if (this.isQualityLessTh50(i)) {
-      return this.raiseQualityByTwo(i);
+        return this.raiseQualityByTwo(i);
       }
     },
 
     raiseQualityIfLssthn50ByThree: function(i) {
       if (this.isQualityLessTh50(i)) {
-      return this.raiseQualityByThree(i);
+        return this.raiseQualityByThree(i);
       }
     },
 
@@ -93,7 +95,6 @@
 
     raiseQualityByTwo: function(i) {
       return this._items[i]._quality = this._items[i]._quality + 2
-
     },
 
     raiseQualityByThree: function(i) {
@@ -108,7 +109,7 @@
     isQualPositiveLowerIfSulfura: function(i) {
       if (this.isQualityPositive(i)) {
         if (this.isNotSulfuras(i)) {
-        return  this.lowerQuality(i);
+          return this.lowerQuality(i);
         }
       }
     }

@@ -29,50 +29,72 @@ describe("Gilded Rose", function() {
       expect(shop.raiseQuality(0)).toEqual(6);
     });
 
-    it("should lower quality of the item", function() {
+    it("raise quality if quality less than 50 ", function() {
+      expect(shop.raiseQualityIfLssthn50(0)).toEqual(6);
+    });
+
+    it("should lower quality by ONE for a normal item", function() {
       expect(shop.lowerQuality(0)).toEqual(4);
     });
 
-    it("raise quality by TWO if quality less than 50 and sellIn days < 11", function() {
-      var oneItem3;
-      var item3;
-      var items3;
-      var shop3;
-      oneItem3 = {
-        _name: "Sulfuras, Hand of Ragnaros",
-        _quality: 5,
-        _sellIn: 8
-
-      };
-
-      items3 = [oneItem3];
-      shop3 = new Shop(items3);
-
-      expect(shop3.raiseQualityIfSellInClose(0, 8)).toEqual(7);
-    });
-
-    it("raise quality by THREE if quality less than 50 and sellIn days < 6", function() {
-      var oneItem2;
-      var item2;
-      var items2;
-      var shop2;
-      oneItem2 = {
-        _name: "Sulfuras, Hand of Ragnaros",
+    it("lowers quality by TWO if item is a conjured item", function() {
+      var oneItem4;
+      var item4;
+      var items4;
+      var shop4;
+      oneItem4 = {
+        _name: "Conjured",
         _quality: 5,
         _sellIn: 0
 
       };
 
-      items2 = [oneItem2];
-      shop2 = new Shop(items2);
+      items4 = [oneItem4];
+      shop4 = new Shop(items4);
 
-      expect(shop2.raiseQualityIfSellInClose(0,5 )).toEqual(8);
+      expect(shop4.lowerQuality(0)).toEqual(3);
     });
 
   });
 
-  describe("check behaviour of the other methods", function() {
+  it("raise quality by TWO if quality less than 50 and sellIn days < 11", function() {
+    var oneItem3;
+    var item3;
+    var items3;
+    var shop3;
+    oneItem3 = {
+      _name: "this is a test",
+      _quality: 5,
+      _sellIn: 8
 
+    };
+
+    items3 = [oneItem3];
+    shop3 = new Shop(items3);
+
+    expect(shop3.raiseQualityIfSellInClose(0, 8)).toEqual(7);
+  });
+
+  it("raise quality by THREE if quality less than 50 and sellIn days < 6", function() {
+    var oneItem2;
+    var item2;
+    var items2;
+    var shop2;
+    oneItem2 = {
+      _name: "this is a test",
+      _quality: 5,
+      _sellIn: 0
+
+    };
+
+    items2 = [oneItem2];
+    shop2 = new Shop(items2);
+
+    expect(shop2.raiseQualityIfSellInClose(0, 5)).toEqual(8);
+  });
+
+
+  describe("check behaviour of the other methods", function() {
 
     it("should have a quality above 0", function() {
       expect(shop.isQualityPositive(0)).toBe(true);
@@ -97,11 +119,6 @@ describe("Gilded Rose", function() {
     it("quality is >0 and this is the Sulfuras item, quality should lower", function() {
       expect(shop.isQualPositiveLowerIfSulfura(0)).toEqual(4);
     });
-
-    it("raise quality if quality less than 50 ", function() {
-      expect(shop.raiseQualityIfLssthn50(0)).toEqual(6);
-    });
-
 
   });
 });
