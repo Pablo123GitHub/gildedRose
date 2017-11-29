@@ -7,7 +7,7 @@
     this._quality = quality;
   };
 
-  function Shop(items = new Item()) {
+  function Shop(items = []) {
     this._items = items;
   };
 
@@ -26,9 +26,11 @@
           }
         }
         if (this.isNotSulfuras(i)) {
-          this.checkItemSellIn(i) = this.checkItemSellIn(i) - 1;
+          console.log(this._items[i]._quality)
+          this._items[i]._quality = this._items[i]._quality - 1;
         }
       };
+      return this._items;
     },
 
     lowerQuality: function(i) {

@@ -121,4 +121,43 @@ describe("Gilded Rose", function() {
     });
 
   });
+
+  // describe("#updateQuality", function() {
+  //
+  //   it("the main function should update array of items", function() {
+  //     var oneItem8;
+  //     var item8;
+  //     var items8;
+  //
+  //     var oneItem9;
+  //     var item9;
+  //     var items9;
+  //
+  //     var itemsTest;
+  //     var shopTest;
+  //
+  //     oneItem8 = {
+  //       _name: "this is product8",
+  //       _quality: 5,
+  //       _sellIn: 8
+  //     };
+  //
+  //     oneItem9 = {
+  //       _name: "this is product Nine",
+  //       _quality: 5,
+  //       _sellIn:15
+  //
+  //     };
+  //
+  //     itemsTest = [oneItem8, oneItem9];
+  //     shopTest = new Shop(itemsTest);
+  //
+  //     expect(shopTest.updateQuality()).toEqual([oneItem8, oneItem9]);
+  //   });
+  //
+  //
+  // });
+
+
+
 });

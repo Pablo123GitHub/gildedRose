@@ -4,14 +4,13 @@ This repo contains a copy of the gilded rose refactoring Kata hosted by [Emily B
 I have only kept the JavaScript Kata.
 
 
-## Get going quickly using Cyber-Dojo
 
-Emily Bache has also set this kata up on [cyber-dojo](http://cyber-dojo.org) for several languages, so you can get going really quickly:
+## Tests
 
-- [JUnit, Java](http://cyber-dojo.org/forker/fork/751DD02C4C?avatar=snake&tag=8)
-- [C#](http://cyber-dojo.org/forker/fork/5C5AC766B0?avatar=koala&tag=3)
-- [C++](http://cyber-dojo.org/forker/fork/AA86ECBCC9?avatar=rhino&tag=7)
-- [Ruby](http://cyber-dojo.org/forker/fork/A8943EAF92?avatar=hippo&tag=9)
-- [RSpec, Ruby](http://cyber-dojo.org/forker/fork/8E58B0AD16?avatar=raccoon&tag=3)
-- [Python](http://cyber-dojo.org/forker/fork/297041AA7A?avatar=lion&tag=4)
-- [Cucumber, Java](http://cyber-dojo.org/forker/fork/0F82D4BA89?avatar=gorilla&tag=48) 
+I have refactored the JavaScript file with legacy code which is located under js/public/js/originalFile.js
+
+I have removed the old version of Jasmine testing framework, and I have replaced it with a more recent version. In order to run the test, you can open the file which is located under spec/frontend/SpecRunner.html
+
+![](https://content.screencast.com/users/Pablo_Zendesk/folders/Jing/media/d58dbb76-3c30-4875-aa7c-ef8efe5342f0/00000020.png)
+
+The refactored file can be found under js/public/js/gildedRose.js
